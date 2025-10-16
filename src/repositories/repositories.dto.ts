@@ -1,18 +1,18 @@
 import { IsDateString, IsInt, IsOptional, IsString, Max, Min } from 'class-validator';
 
 export class SearchQueryDto {
-  @IsOptional()
   @IsString()
-  language?: string;
+  language!: string;
+
+  @IsDateString()
+  createdAt!: string;
 
   @IsOptional()
-  @IsDateString()
-  createdDate?: string;
-
   @IsInt()
   @Min(1)
   pageNumber: number = 1;
 
+  @IsOptional()
   @IsInt()
   @Min(1)
   @Max(100)

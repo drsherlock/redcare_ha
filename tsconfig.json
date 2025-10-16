@@ -13,6 +13,6 @@
     "skipLibCheck": true,
     "lib": ["ES2022", "DOM"]
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "src/setup-tests.cjs"],
   "exclude": ["node_modules", "dist", "src/**/*.test.ts", "src/**/*.spec.ts", "src/**/__tests__/**"]
 }

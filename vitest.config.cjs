@@ -1,8 +1,10 @@
-import { defineConfig } from 'vitest/config';
+const { defineConfig } = require('vitest/config');
 
-export default defineConfig({
+module.exports = defineConfig({
   test: {
     include: ['src/**/*.test.ts'],
+    environment: 'node',
+    setupFiles: ['src/setup-tests.cjs'],
     coverage: {
       include: ['src/**/*.ts'],
       provider: 'v8',

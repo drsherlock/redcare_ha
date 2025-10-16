@@ -1,13 +1,15 @@
 export type SearchRepositoriesParams = {
-  language?: string;
-  createdDate?: string;
+  language: string;
+  createdAt: string;
   pageNumber: number;
   pageSize: number;
 };
 
 export type SearchRepositoriesResponse = {
+  pageNumber: number;
+  pageSize: number;
+  hasNextPage: boolean;
   totalCount: number;
-  incompleteResults: boolean;
   items: Array<{
     id: number;
     name: string;
@@ -15,18 +17,12 @@ export type SearchRepositoriesResponse = {
     htmlUrl: string;
     description?: string;
     language?: string;
-
     stargazersCount: number;
     forksCount: number;
-
     score: number;
-
     createdAt: Date;
     updatedAt: Date;
     pushedAt: Date;
-
-    recencyDays: number;
-
     owner?: {
       login: string;
       id: number;

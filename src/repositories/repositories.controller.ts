@@ -2,7 +2,7 @@ import type { Context } from 'hono';
 import { Hono } from 'hono';
 
 import { logger } from '../logger';
-import { validateQueryParams } from '../QueryParamsValidator';
+import { validateQueryParams } from '../validators/QueryParamsValidator';
 import { SearchQueryDto } from './repositories.dto';
 import { repositoriesService } from './repositories.service';
 

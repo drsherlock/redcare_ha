@@ -15,17 +15,21 @@ const NullToUndefined = () => Transform(({ value }) => (value === null ? undefin
 
 export class GitHubOwnerDto {
   @IsString()
+  @Expose()
   login!: string;
 
   @IsInt()
+  @Expose()
   id!: number;
 }
 
 export class GitHubItemDto {
   @IsInt()
+  @Expose()
   id!: number;
 
   @IsString()
+  @Expose()
   name!: string;
 
   @IsString()
@@ -40,17 +44,20 @@ export class GitHubItemDto {
   @IsOptional()
   @IsString()
   @NullToUndefined()
+  @Expose()
   description?: string;
 
   @IsOptional()
   @ValidateNested()
   @Type(() => GitHubOwnerDto)
   @NullToUndefined()
+  @Expose()
   owner?: GitHubOwnerDto;
 
   @IsOptional()
   @IsString()
   @NullToUndefined()
+  @Expose()
   language?: string;
 
   @IsInt()
@@ -62,14 +69,17 @@ export class GitHubItemDto {
   forksCount!: number;
 
   @IsDate()
+  @Type(() => Date)
   @Expose({ name: 'created_at' })
   createdAt!: Date;
 
   @IsDate()
+  @Type(() => Date)
   @Expose({ name: 'updated_at' })
   updatedAt!: Date;
 
   @IsDate()
+  @Type(() => Date)
   @Expose({ name: 'pushed_at' })
   pushedAt!: Date;
 
@@ -82,13 +92,14 @@ export class GitHubItemDto {
     const now = new Date();
     return Math.floor((now.getTime() - updated.getTime()) / (1000 * 60 * 60 * 24));
   })
-  recencyDays!: number;
+  daysSinceUpdate!: number;
 }
 
 export class GitHubSearchResponseDto {
   @IsArray()
   @ValidateNested({ each: true })
   @Type(() => GitHubItemDto)
+  @Expose()
   items!: GitHubItemDto[];
 
   @IsInt()
