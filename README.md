@@ -1,7 +1,6 @@
 # GitHub Repo Popularity Scorer
 
-A backend service that fetches repositories from the GitHub Search API, computes a **popularity score** per repo, and returns the list sorted by that score.  
-The score uses **stars**, **forks**, and **recency of updates**.
+A backend service that fetches repositories from the GitHub Search API, computes a **popularity score** per repo, and returns the list sorted by that score. The score uses **stars**, **forks**, and **recency of updates**.
 
 ---
 
@@ -11,6 +10,7 @@ The score uses **stars**, **forks**, and **recency of updates**.
 - Filter by **language** and **earliest created date**  
 - Compute popularity with a **weighted log + decay** formula  
 - Return results ranked by score  
+
 ---
 
 ## 🧮 How the Score Works
@@ -121,8 +121,8 @@ HALF_LIFE_DAYS=30
 ```bash
 npm run dev          # start in watch mode
 npm run build        # compile TypeScript
-npm start            # run server (no watch)
-npm test             # run tests (Vitest)
+npm run start        # run server (no watch)
+npm run test         # run tests (Vitest)
 npm run lint         # check lint
 npm run lint:fix     # fix lint errors
 npm run format       # format code with Prettier

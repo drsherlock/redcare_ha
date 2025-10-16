@@ -36,7 +36,6 @@ export class GitHubItemDto {
   @Expose({ name: 'full_name' })
   fullName!: string;
 
-  // primary URL
   @IsUrl()
   @Expose({ name: 'html_url' })
   htmlUrl!: string;
